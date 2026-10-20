@@ -1,0 +1,18 @@
+{
+  "name": "daily-driver",
+  "version": "0.1.0",
+  "description": "Workflow booster: a focus goal band, a ping when long turns finish, a daily work log with /eod, and /handoff to resume tomorrow where you stopped.",
+  "author": {
+    "name": "samarthsh-git"
+  },
+  "license": "MIT",
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "notifyAfterSeconds": {
+      "type": "number",
+      "title": "Notify after (seconds)",
+      "description": "Send a desktop/phone notification when a turn that ran at least this long finishes, so you can work elsewhere meanwhile. 0 turns it off.",
+      "default": 60
+    }
+  }
+}

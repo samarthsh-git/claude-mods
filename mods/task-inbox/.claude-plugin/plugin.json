@@ -1,0 +1,10 @@
+{
+  "name": "task-inbox",
+  "version": "0.1.0",
+  "description": "To-do pane: Claude's live plan, your own to-dos, and an inbox of tasks you dispatch to background subagents in one press.",
+  "author": {
+    "name": "samarthsh-git"
+  },
+  "license": "MIT",
+  "types": "./types/index.d.ts"
+}

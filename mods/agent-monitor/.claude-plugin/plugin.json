@@ -1,0 +1,10 @@
+{
+  "name": "agent-monitor",
+  "version": "0.1.0",
+  "description": "Sidebar of every subagent: what it was asked, what it is doing right now, its model, time and tokens, with history.",
+  "author": {
+    "name": "samarthsh-git"
+  },
+  "license": "MIT",
+  "types": "./types/index.d.ts"
+}

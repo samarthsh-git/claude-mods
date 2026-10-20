@@ -1,0 +1,41 @@
+{
+  "name": "token-saver",
+  "version": "0.1.0",
+  "description": "Cuts token spend without cutting accuracy: routes subagents to cheaper models, adds lean-output rules, stops duplicate file reads, shows a usage HUD and advises when to switch model.",
+  "author": {
+    "name": "samarthsh-git"
+  },
+  "license": "MIT",
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "routing": {
+      "type": "string",
+      "title": "Subagent model routing",
+      "description": "balanced: search/lookup subagents (Explore, guides) run on Haiku. aggressive: also general-purpose and Plan subagents on Sonnet. off: never change a subagent's model.",
+      "options": [
+        "balanced",
+        "aggressive",
+        "off"
+      ],
+      "default": "balanced"
+    },
+    "leanRules": {
+      "type": "boolean",
+      "title": "Lean-output rules",
+      "description": "Add a short system-prompt section telling Claude to skip preamble and recaps, read files in targeted ranges and batch tool calls.",
+      "default": true
+    },
+    "dedupeReads": {
+      "type": "boolean",
+      "title": "Duplicate-read guard",
+      "description": "Refuse, once, a Read of a file Claude already read in this context with the same range while it is unchanged on disk. A repeated identical call goes through, so the worst case is one extra round trip.",
+      "default": true
+    },
+    "advisor": {
+      "type": "boolean",
+      "title": "Model advisor",
+      "description": "A toast when a prompt looks too simple for an expensive model, or too hard for a cheap one. Costs no tokens.",
+      "default": true
+    }
+  }
+}
