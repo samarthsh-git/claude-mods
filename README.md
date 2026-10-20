@@ -72,6 +72,19 @@ Cost:
 
 Commands: `/clarify on` (default) · `off` · `always` · `now <task>` (force questions for one task) · `/clarify` alone shows status. Settings: `detector` (hybrid / heuristic / model), `maxQuestions` (1 to 4).
 
+## Claude chat (claude.ai, phone and desktop apps)
+
+The mods above run only in Claude Code: the chat app has no plugin system. For chat, `chat/` holds the closest equivalents, and both work on every device once set up:
+
+1. **`chat/preferences.txt`**: paste it into Settings → Profile → personal preferences. It holds the lean-output rules, clarifying questions on complex tasks only, and a model-fit hint. It is about 200 words, shorter than a typical preferences block, and preferences ride on every message, so shorter is cheaper.
+2. **`chat/deep-work-skill.zip`**: upload it in Settings → Capabilities → Skills. It is a gather → ask → spec → deliver → self-check procedure that Claude loads only for complex work, so everyday chats pay just its one-line description.
+
+Chat habits that save the most: start a new chat per topic (each message resends the whole chat), put reference files in a Project instead of pasting them again, and use a lighter model for simple asks.
+
+## Cloud sessions from your phone
+
+`.claude/settings.json` registers this marketplace and enables the five mods, so a Claude Code session opened on this repository (from claude.ai/code or the phone app) offers to install them with no commands typed.
+
 ## Third-party mods from the same Reddit thread
 
 These are other people's projects. Install them from their own repositories:

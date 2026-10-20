@@ -1,0 +1,14 @@
+{
+  "extraKnownMarketplaces": {
+    "claude-mods": {
+      "source": { "source": "github", "repo": "samarthsh-git/claude-mods" }
+    }
+  },
+  "enabledPlugins": {
+    "agent-monitor@claude-mods": true,
+    "task-inbox@claude-mods": true,
+    "token-saver@claude-mods": true,
+    "daily-driver@claude-mods": true,
+    "clarify-first@claude-mods": true
+  }
+}
