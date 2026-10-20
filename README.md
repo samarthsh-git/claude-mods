@@ -12,6 +12,7 @@ At the prompt of a Claude Code terminal session:
 /plugin install token-saver --marketplace samarthsh-git/claude-mods
 /plugin install daily-driver --marketplace samarthsh-git/claude-mods
 /plugin install clarify-first --marketplace samarthsh-git/claude-mods
+/plugin install mod-scout --marketplace samarthsh-git/claude-mods
 ```
 
 Answer `y` to add the marketplace, then pick the user scope. From a shell: `claude plugin install <mod> --marketplace samarthsh-git/claude-mods`.
@@ -56,7 +57,7 @@ What saves the most, from experience: `/clear` between unrelated tasks, keeping 
 
 ### daily-driver: get more done per day
 
-- `/aim <goal>` sets a focus goal, shown above the prompt with time spent and today's file and commit counts. Press **Done** or run `/aim done` to log it.
+- `/aim <goal>` sets a focus goal (`/aim auto <goal>` sets one only when none is set), shown above the prompt with time spent and today's file and commit counts. Press **Done** or run `/aim done` to log it.
 - When a turn ran 60 s or longer (setting `notifyAfterSeconds`), you get a desktop or phone notification with Claude's answer. Hand Claude long work and switch tasks.
 - `/eod` (or `/eod yesterday`) prints a zero-token work log: Claude time, prompts, files changed, commits, test runs, subagents and goals done. Paste it into a standup.
 - `/handoff` has Claude write `.claude/handoff.md` (goal, done, state, next steps, gotchas). `/pickup` in the next session continues from it, and a toast reminds you when one exists.
@@ -72,6 +73,17 @@ Cost:
 
 Commands: `/clarify on` (default) · `off` · `always` · `now <task>` (force questions for one task) · `/clarify` alone shows status. Settings: `detector` (hybrid / heuristic / model), `maxQuestions` (1 to 4).
 
+### mod-scout: the right mod at the right time
+
+It reads each prompt locally, with no model call and zero tokens, and never changes what Claude sees:
+
+- **Suggests** the installed mod that fits, as a toast, once per kind per session. For example "why is my usage so high" suggests `/tokens`, a list of 3 or more tasks suggests `/inbox`, and "wrapping up for today" suggests `/handoff`. It knows every mod here plus Podium and Grounded Engineering, and stays quiet about mods you have not installed.
+- **Sets your focus goal** (daily-driver's `/aim`) from your first real task of the session, unless you already set one.
+- **Makes mods for you:** send the same prompt a third time and it becomes a slash command on the spot (`/run-test`, say). This costs no tokens to make or to use beyond the prompt itself. `/scout rm <name>` removes one.
+- **Builds bigger mods on request:** `/scout build <idea>` has Claude write, validate and test a new mod, with zero run-time token cost wherever the feature allows. This is the one part that spends tokens, and only when you ask.
+
+`/scout` shows recent suggestions and your macros. `/scout off` pauses it. Settings: `autoMacros`, `autoFocus`.
+
 ## Claude chat (claude.ai, phone and desktop apps)
 
 The mods above run only in Claude Code: the chat app has no plugin system. For chat, `chat/` holds the closest equivalents, and both work on every device once set up:
@@ -83,7 +95,7 @@ Chat habits that save the most: start a new chat per topic (each message resends
 
 ## Cloud sessions from your phone
 
-`.claude/settings.json` registers this marketplace and enables the five mods, so a Claude Code session opened on this repository (from claude.ai/code or the phone app) offers to install them with no commands typed.
+`.claude/settings.json` registers this marketplace and enables the six mods, so a Claude Code session opened on this repository (from claude.ai/code or the phone app) offers to install them with no commands typed.
 
 ## Third-party mods from the same Reddit thread
 

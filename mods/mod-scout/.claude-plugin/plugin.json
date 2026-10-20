@@ -1,0 +1,21 @@
+{
+  "name": "mod-scout",
+  "version": "0.1.0",
+  "description": "Watches your prompts at zero token cost: suggests the installed mod that fits, sets your focus goal, turns prompts you repeat into one-word slash commands, and builds new mods on request.",
+  "author": { "name": "samarthsh-git" },
+  "license": "MIT",
+  "userConfig": {
+    "autoMacros": {
+      "type": "boolean",
+      "title": "Auto macros",
+      "description": "When you send the same prompt a third time, make a slash command that sends it.",
+      "default": true
+    },
+    "autoFocus": {
+      "type": "boolean",
+      "title": "Auto focus goal",
+      "description": "Set daily-driver's focus goal from your first real task of the session when none is set.",
+      "default": true
+    }
+  }
+}

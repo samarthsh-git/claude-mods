@@ -29,6 +29,11 @@
       "name": "clarify-first",
       "source": "./mods/clarify-first",
       "description": "Asks 2-4 high-leverage multiple-choice questions before complex tasks and deep questions; everyday prompts pass untouched."
+    },
+    {
+      "name": "mod-scout",
+      "source": "./mods/mod-scout",
+      "description": "Zero-token prompt watcher: suggests the installed mod that fits, sets your focus goal, turns repeated prompts into slash commands, builds new mods on request."
     }
   ]
 }

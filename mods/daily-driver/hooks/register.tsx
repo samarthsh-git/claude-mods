@@ -84,12 +84,15 @@ export const register: Register = (on, options) => {
       await $.store.delete(`focus:${cwd}`)
       return { text: args === 'done' ? `Done: ${current.goal}` : `Focus cleared (was: ${current.goal}).` }
     }
-    const next: Focus = { goal: args, setAt: await $.clock.now() }
+    const isAuto = args.startsWith('auto ')
+    if (isAuto && current !== null) return { text: `Focus kept: ${current.goal}` }
+    const goal = isAuto ? args.slice(5).trim() : args
+    const next: Focus = { goal, setAt: await $.clock.now() }
     await update($, focus, () => next)
     await update($, isBandHidden, () => false)
     await $.store.set(`focus:${cwd}`, next)
 
-    return { text: `Focus: ${args}` }
+    return { text: `Focus: ${goal}` }
   })
 
   on('command.run', { command: 'eod' }, async ($, e) => {
