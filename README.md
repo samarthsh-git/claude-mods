@@ -11,6 +11,7 @@ At the prompt of a Claude Code terminal session:
 /plugin install task-inbox --marketplace samarthsh-git/claude-mods
 /plugin install token-saver --marketplace samarthsh-git/claude-mods
 /plugin install daily-driver --marketplace samarthsh-git/claude-mods
+/plugin install clarify-first --marketplace samarthsh-git/claude-mods
 ```
 
 Answer `y` to add the marketplace, then pick the user scope. From a shell: `claude plugin install <mod> --marketplace samarthsh-git/claude-mods`.
@@ -59,6 +60,17 @@ What saves the most, from experience: `/clear` between unrelated tasks, keeping 
 - When a turn ran 60 s or longer (setting `notifyAfterSeconds`), you get a desktop or phone notification with Claude's answer. Hand Claude long work and switch tasks.
 - `/eod` (or `/eod yesterday`) prints a zero-token work log: Claude time, prompts, files changed, commits, test runs, subagents and goals done. Paste it into a standup.
 - `/handoff` has Claude write `.claude/handoff.md` (goal, done, state, next steps, gotchas). `/pickup` in the next session continues from it, and a toast reminds you when one exists.
+
+### clarify-first: questions before complex work
+
+On a complex task or a deep, open-ended question, Claude first checks the repo and the chat for what it can learn itself. If something that would change the result is still missing, it asks you up to 4 multiple-choice questions in one round, with a recommended option on each. It then states the agreed spec in 3 lines or fewer, does the work, and checks the result against that spec. Everyday prompts ("fix the typo", "what is X") pass straight through.
+
+Cost:
+- **Detection:** free keyword scoring decides most prompts. Only borderline ones get a classification call on the small, fast model, typically a few hundred tokens. Set `detector` to `heuristic` for zero detection tokens.
+- **Instruction:** about 200 tokens of instruction reach the model, and only on prompts flagged complex.
+- **Payoff:** one question round is usually cheaper than redoing work built on a wrong assumption. That trade is the point of the mod. It is not a measured gain.
+
+Commands: `/clarify on` (default) · `off` · `always` · `now <task>` (force questions for one task) · `/clarify` alone shows status. Settings: `detector` (hybrid / heuristic / model), `maxQuestions` (1 to 4).
 
 ## Third-party mods from the same Reddit thread
 

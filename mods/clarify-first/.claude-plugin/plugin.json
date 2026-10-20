@@ -1,0 +1,22 @@
+{
+  "name": "clarify-first",
+  "version": "0.1.0",
+  "description": "On complex tasks and deep questions, Claude first asks you 2-4 high-leverage multiple-choice questions, then works to that spec. Everyday prompts pass untouched.",
+  "author": { "name": "samarthsh-git" },
+  "license": "MIT",
+  "userConfig": {
+    "detector": {
+      "type": "string",
+      "title": "Complexity detector",
+      "description": "hybrid: free keyword scoring, and a tiny Haiku check only for borderline prompts. heuristic: keyword scoring alone, zero tokens. model: Haiku checks every prompt over 60 characters.",
+      "options": ["hybrid", "heuristic", "model"],
+      "default": "hybrid"
+    },
+    "maxQuestions": {
+      "type": "number",
+      "title": "Most questions per round",
+      "description": "The most questions Claude asks before starting (1 to 4).",
+      "default": 4
+    }
+  }
+}

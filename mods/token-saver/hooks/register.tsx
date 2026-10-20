@@ -175,7 +175,7 @@ export const register: Register = (on, options) => {
 
   if (isAdvisor) {
     on('prompt.submit', async ($, e, next) => {
-      if (e.command || e.isMeta || e.origin.kind !== 'composer') return next(e)
+      if (e.command || e.isMeta || !['composer', 'bridge', 'sdk'].includes(e.origin.kind)) return next(e)
       const now = await $.clock.now()
       if (now - lastAdvice < 15 * 60_000) return next(e)
 

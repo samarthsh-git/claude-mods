@@ -1,11 +1,34 @@
 {
   "name": "claude-mods",
-  "owner": { "name": "samarthsh-git" },
+  "owner": {
+    "name": "samarthsh-git"
+  },
   "description": "Claude Code mods for subagent visibility, task tracking, token savings and daily workflow.",
   "plugins": [
-    { "name": "agent-monitor", "source": "./mods/agent-monitor", "description": "Sidebar of every subagent: task, live activity, model, time, tokens, history." },
-    { "name": "task-inbox", "source": "./mods/task-inbox", "description": "Claude's live plan, your to-dos, and an inbox you dispatch to background subagents." },
-    { "name": "token-saver", "source": "./mods/token-saver", "description": "Cheaper-model routing for subagents, lean-output rules, duplicate-read guard, usage HUD, model advisor." },
-    { "name": "daily-driver", "source": "./mods/daily-driver", "description": "Focus goal band, finish notifications, daily work log (/eod), and /handoff + /pickup across sessions." }
+    {
+      "name": "agent-monitor",
+      "source": "./mods/agent-monitor",
+      "description": "Sidebar of every subagent: task, live activity, model, time, tokens, history."
+    },
+    {
+      "name": "task-inbox",
+      "source": "./mods/task-inbox",
+      "description": "Claude's live plan, your to-dos, and an inbox you dispatch to background subagents."
+    },
+    {
+      "name": "token-saver",
+      "source": "./mods/token-saver",
+      "description": "Cheaper-model routing for subagents, lean-output rules, duplicate-read guard, usage HUD, model advisor."
+    },
+    {
+      "name": "daily-driver",
+      "source": "./mods/daily-driver",
+      "description": "Focus goal band, finish notifications, daily work log (/eod), and /handoff + /pickup across sessions."
+    },
+    {
+      "name": "clarify-first",
+      "source": "./mods/clarify-first",
+      "description": "Asks 2-4 high-leverage multiple-choice questions before complex tasks and deep questions; everyday prompts pass untouched."
+    }
   ]
 }
